@@ -4,10 +4,16 @@ require("dotenv").config();
 const express = require("express");
 const path = require("path");
 const morgan = require("morgan");
+const mongoose = require("mongoose");
+
+
+mongoose.connect(process.env.MONGO_URI);
 
 
 const app = express();
 const PORT = process.env.PORT || 3001;
+
+app.use(express.json());
 
 
 app.listen(PORT, () => {
